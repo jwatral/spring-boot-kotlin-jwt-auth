@@ -1,0 +1,50 @@
+POST http://localhost:8080/users/sign-up
+Content-Type: application/json
+
+{
+"username": "admin", "password": "admin"
+}
+
+###
+
+#Login as bob from developers group
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+"username": "bob", "password": "bobspassword"
+}
+
+###
+
+#Login as jerry from managers group
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+"username": "jerry", "password": "jerryspassword"
+}
+
+
+###
+
+POST http://localhost:8080/tasks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE1MTUwMjM2MTR9.cAzYRmgQ6kYoiMLZk6nyaoM5zMfkf_n-_EadZngjBo2-U8bYYtjk0kDdMivECUKN_HclC0BKXX7ELcBXepTOag
+Content-Type: application/json
+
+{
+"description": "Buy watermelon"
+}
+
+###
+# Get as jerry
+http://localhost:8080/tasks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqZXJyeSIsInJvbGVzIjoiUk9MRV9NQU5BR0VSUyIsImV4cCI6MTUxNTE5NjE2Mn0.nmxJBAqACC8f0qgECs8xb7mewnzxQSi63Aq4egm2mZ6XuOiatEPx2aQg8sx9-ug94SkR2YlFGUE6AXjZDw9vhg
+
+###
+# Get as bob
+http://localhost:8080/tasks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJyb2xlcyI6IlJPTEVfREVWRUxPUEVSUyIsImV4cCI6MTUxNTE5NjAxMH0.XT2XOPX0oZMoPFUqSaFe_VGDpjcEv9kkmgcLBgQgcDKzgmlLrADs2GP9N8EJmNBkKuvoUSJlH1hgj-SFArV6dw
+###
+
+
